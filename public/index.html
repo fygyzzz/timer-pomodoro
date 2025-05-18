@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <meta name="description" content="A simple and convenient Pomodoro timer to increase productivity. Manage your time and tasks easily!">
+    <meta name="keywords" content="Pomodoro, timer, productivity, time management, tasks, focus">
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <button id="auth-btn">Войти</button>
+        <div id="user-email" style="display: none;"></div>
+    </div>    
+    <div class="theme-switcher">
+        <button id="theme-btn">🌓</button>
+    </div>
+    
+    <div class="timer-container">
+        <div id="timer">25:00</div>
+
+        <div class="mode-buttons">
+            <button id="pomodoro-btn" class="active-mode">Pomodoro</button>
+            <button id="short-break-btn">Short Break</button>
+            <button id="long-break-btn">Long Break</button>
+        </div>
+
+        <div class="task-buttons">
+            <button id="start-btn">Start</button>
+            <button id="stop-btn">Stop</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+
+        <div class="settings">
+            <h3>Settings</h3>
+            <div class="setting-item">
+                <label for="pomodoro-time">Pomodoro (minutes):</label>
+                <input type="number" id="pomodoro-time" min="0" max="60" value="25">
+            </div>
+            <div class="setting-item">
+                <label for="short-break-time">Short Break (minutes):</label>
+                <input type="number" id="short-break-time" min="0" max="30" value="5">
+            </div>
+            <div class="setting-item">
+                <label for="long-break-time">Long Break (minutes):</label>
+                <input type="number" id="long-break-time" min="0" max="60" value="15">
+            </div>
+            <div class="setting-item">
+                <label for="sound-toggle">Enable sounds:</label>
+                <input type="checkbox" id="sound-toggle" checked>
+            </div>
+        </div>
+
+        <div id="task-list"></div>
+
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="New task...">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <div id="selected-task-name">No Selected Task</div>
+    </div>
+
+    <audio id="timer-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3"></audio>
+    <audio id="complete-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3"></audio>
+
+    <!-- Модальное окно авторизации -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Вход</button>
+                <button class="auth-tab" data-tab="register">Регистрация</button>
+            </div>
+        
+            <div id="login-form" class="auth-form">
+                <input type="email" id="login-email" placeholder="Email" class="auth-input">
+                <input type="password" id="login-password" placeholder="Пароль" class="auth-input">
+                <button id="login-btn" class="auth-submit-btn">Войти</button>
+                <button id="google-auth-btn" class="auth-google-btn">
+                    <img src="/src/img/google-logo.png" alt="Google">
+                    Войти через Google
+                </button>
+            </div>
+        
+            <div id="register-form" class="auth-form" style="display: none;">
+                <input type="email" id="register-email" placeholder="Email" class="auth-input">
+                <input type="password" id="register-password" placeholder="Пароль" class="auth-input">
+                <input type="password" id="confirm-password" placeholder="Повторите пароль" class="auth-input">
+                <button id="register-btn" class="auth-submit-btn">Зарегистрироваться</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/public/js/script.js"></script>
+</body>
+</html>
