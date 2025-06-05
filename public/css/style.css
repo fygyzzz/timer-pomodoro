@@ -101,6 +101,10 @@ body.light-theme {
   transition: all 0.3s ease;
   width: 90%;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh; /* Минимальная высота */
+  max-height: 95vh; /* Максимальная высота */
 }
 
 #timer {
@@ -200,11 +204,12 @@ button {
 }
 
 #task-list {
-  padding: 0;
   max-height: 200px;
   overflow-y: auto;
   margin-bottom: 20px;
   border-radius: 5px;
+  flex-grow: 1;
+  min-height: 60px; /* Минимальная высота, чтобы не схлопывалось */
 }
 
 .task-item {
@@ -504,10 +509,18 @@ button {
 }
 
 @media (max-width: 480px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 10px 0;
+    display: block;
+  }
   .timer-container {
-    margin-top: 70px; /* Give space for top buttons */
+    margin-top: 10px;
     padding: 15px;
-    width: 95%;
+    min-height: auto;
+    max-height: none;
+    overflow-y: auto;
   }
 
   #timer {
@@ -560,5 +573,18 @@ button {
   .task-item .pomodoro-count {
     margin-right: 5px;
     font-size: 0.9em;
+  }
+
+  #user-email {
+    display: block !important;
+    margin: 5px auto;
+    max-width: 100%;
+  }
+
+   .auth-container {
+    position: static;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
   }
 }
